@@ -1,0 +1,16 @@
+html,body,#app{
+    height: 100%;
+    margin: 0;
+}
+/*面包屑设置一个下边距*/
+.el-breadcrumb{
+    margin-bottom: 15px;
+}
+/*阴影部分*/
+.el-card{
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15)!important;
+}
+/*表格设置一个上边距*/
+.el-table{
+    margin: 10px 0;
+}

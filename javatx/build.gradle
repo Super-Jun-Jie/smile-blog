@@ -1,0 +1,83 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'org.javatx'
+version = ''
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+
+    // https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.4'
+
+
+
+    compileOnly 'org.projectlombok:lombok'
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
+
+
+    //以下 均为阿里云包
+    // 阿里云文字识别
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-ocr', version: '1.0.7'
+    // 阿里 json解析
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.73'
+    // https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-core 核心包
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-core', version: '4.5.5'
+    // https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-imageenhan
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-imageenhan', version: '1.0.9'
+    // https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-imagerecog
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-imagerecog', version: '1.0.8'
+    // https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-facebody
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-facebody', version: '1.1.3'
+    // https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-imageseg
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-imageseg', version: '1.1.0'
+    // https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-goodstech
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-goodstech', version: '1.0.1'
+    // https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-imageaudit
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-imageaudit', version: '1.0.6'
+    // https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-objectdet
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-objectdet', version: '1.0.7'
+    // https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss
+    compile group: 'com.aliyun.oss', name: 'aliyun-sdk-oss', version: '3.10.2'
+
+
+    //xml和bean的相互转换
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.11.2'
+
+
+    compile("org.springframework.boot:spring-boot-devtools")
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+bootRun {
+    sourceResources sourceSets.main
+}
